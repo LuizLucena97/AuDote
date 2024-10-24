@@ -5,6 +5,16 @@ VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuDote.API", "AuDote.API\AuDote.API.csproj", "{FC7EF495-8090-487B-84D2-350A032EFEB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuDote.Database", "AuDote.Database\AuDote.Database.csproj", "{73064D76-6FCE-4A51-829C-8BB16BED9BD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuDote.Repository", "AuDote.Repository\AuDote.Repository.csproj", "{4467E078-E171-48A1-BF50-72A1016CC80C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{03F45B18-D60D-45C4-BDEC-4BD6C9ADE8FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6DCD108A-5C0F-493A-BBF3-F7E8B9383B9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{474FEBF1-2A2E-4567-BA02-3E08632ADA6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +25,27 @@ Global
 		{FC7EF495-8090-487B-84D2-350A032EFEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC7EF495-8090-487B-84D2-350A032EFEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC7EF495-8090-487B-84D2-350A032EFEB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73064D76-6FCE-4A51-829C-8BB16BED9BD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73064D76-6FCE-4A51-829C-8BB16BED9BD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73064D76-6FCE-4A51-829C-8BB16BED9BD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73064D76-6FCE-4A51-829C-8BB16BED9BD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4467E078-E171-48A1-BF50-72A1016CC80C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4467E078-E171-48A1-BF50-72A1016CC80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4467E078-E171-48A1-BF50-72A1016CC80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4467E078-E171-48A1-BF50-72A1016CC80C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{474FEBF1-2A2E-4567-BA02-3E08632ADA6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{474FEBF1-2A2E-4567-BA02-3E08632ADA6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{474FEBF1-2A2E-4567-BA02-3E08632ADA6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{474FEBF1-2A2E-4567-BA02-3E08632ADA6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC7EF495-8090-487B-84D2-350A032EFEB1} = {03F45B18-D60D-45C4-BDEC-4BD6C9ADE8FE}
+		{73064D76-6FCE-4A51-829C-8BB16BED9BD7} = {03F45B18-D60D-45C4-BDEC-4BD6C9ADE8FE}
+		{4467E078-E171-48A1-BF50-72A1016CC80C} = {03F45B18-D60D-45C4-BDEC-4BD6C9ADE8FE}
+		{474FEBF1-2A2E-4567-BA02-3E08632ADA6D} = {6DCD108A-5C0F-493A-BBF3-F7E8B9383B9C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {63933A58-7EE4-4866-94F1-D8CCB3D447B5}
