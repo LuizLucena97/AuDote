@@ -27,14 +27,19 @@ namespace AuDote.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public IActionResult Post([FromBody] Cachorro cachorro)
         {
+            if (cachorro == null) // Adicione esta verificação para evitar nulos
+            {
+                return BadRequest("Cachorro não pode ser nulo.");
+            }
+
             try
             {
                 _cachorroRepository.Add(cachorro);
                 return StatusCode(StatusCodes.Status201Created, cachorro);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao criar cachorro.");
             }
         }
 
