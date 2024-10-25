@@ -1,3 +1,6 @@
+using AuDote.API.Configuration;
+using AuDote.API.Extensions;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 namespace AuDote.API
 {
@@ -7,14 +10,27 @@ namespace AuDote.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            IConfiguration configuration = builder.Configuration;
 
+            APPConfiguration appConfiguration = new APPConfiguration();
+            
+            configuration.Bind(appConfiguration);
+
+            builder.Services.Configure<APPConfiguration>(configuration);
+
+            // Add services to the container.
             builder.Services.AddControllers();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwagger(appConfiguration);
+            builder.Services.AddDbContexts(appConfiguration);
+            builder.Services.AddRepositories();
+            builder.Services.AddHealthCheck(appConfiguration);
 
             var app = builder.Build();
+
+            app.UseRouting();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -24,11 +40,19 @@ namespace AuDote.API
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
 
-
             app.MapControllers();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health-check", new HealthCheckOptions()
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = HealthCheckExtensions.WriteResponse
+                });
+            });
 
             app.Run();
         }
